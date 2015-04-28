@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="3c650eb5-91b6-4984-a205-290d34fd67ae" Version="0.9" Language="en-US" Publisher="Microsoft Corporation" />
+    <DisplayName>Tenon HTML Accessibility Checker</DisplayName>
+    <Description xml:space="preserve">The Tenon’s HTML Accessibility Checker service makes it easier for developers to detect and resolve common accessibility issues within their HTML-based user interfaces. It takes more than static code analysis to create great experiences for people with permanent or situational disabilities; there is no tool today that fully automates accessibility standards like WCAG 2.0 or ensures a great experience. However, there is no reason to ship code with accessibility issues that can be detected automatically.</Description>
+    <MoreInfo>http://tenon.io</MoreInfo>
+    <License>license.txt</License>
+    <ReleaseNotes>This an Alpha version of the Tenon HTML Accessibility Checker.</ReleaseNotes>
+    <Icon>Resources\custom32.ico</Icon>
+    <PreviewImage>Resources\custom32.ico</PreviewImage>
+    <Tags>Accessibility; HTML; Checker; Code Analysis</Tags>
+  </Metadata>
+  <Installation InstalledByMsi="false">
+    <InstallationTarget Version="[11.0,]" Id="Microsoft.VisualStudio.Pro" />
+    <InstallationTarget Version="[11.0,]" Id="Microsoft.VisualStudio.Ultimate" />
+    <InstallationTarget Version="[11.0,]" Id="Microsoft.VisualStudio.Premium" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.12.0" DisplayName="Visual Studio MPF 12.0" d:Source="Installed" Version="[12.0]" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
+  </Assets>
+</PackageManifest>

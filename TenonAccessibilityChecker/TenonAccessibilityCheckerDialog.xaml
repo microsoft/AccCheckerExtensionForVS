@@ -1,0 +1,8 @@
+﻿<Window x:Class="Microsoft.TenonAccessibilityChecker.TenonAccessibilityCheckerDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tenon Accessibility Checker" Height="300" Width="494.4">
+    <Grid>
+        
+    </Grid>
+</Window>

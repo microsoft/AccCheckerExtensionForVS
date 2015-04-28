@@ -1,0 +1,118 @@
+﻿<ui:DialogWindow
+     x:Class="Microsoft.TenonAccessibilityChecker.TenonModal"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:ui="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.12.0"
+     xmlns:vsui="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.12.0"
+     ShowInTaskbar="False"
+     WindowStartupLocation="CenterOwner"
+     Title="Check Accessibility with Tenon" SizeToContent="WidthAndHeight" Background="White"  FocusManager.FocusedElement="{Binding ElementName=txtblock}"  ResizeMode="NoResize">
+
+    <Grid HorizontalAlignment="Stretch" ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Name="Grid1" Height="Auto" Margin="0,-10,10,0" MaxWidth="560">
+            <TextBlock Name="txtblock" TextWrapping="Wrap" Margin="9,10,0,2" LineHeight="Auto" Height="Auto" Padding="5,6,0,9" HorizontalAlignment="Stretch" VerticalAlignment="top" FontSize="14">Learn about the
+                <Hyperlink Name="tenonHyperlink"  NavigateUri="https://tenon.io/" RequestNavigate="Hyperlink_OnRequestNavigate" Focusable="True">Tenon service </Hyperlink> and how features like Confidence scores can be used to tune the results (e.g. to find hard to discover issues and eliminate the false positives).
+            </TextBlock>
+            <TextBlock  TextWrapping="Wrap" Margin="9,55,10,2" LineHeight="Auto" Height="Auto" Padding="5,4,0,9" HorizontalAlignment="Stretch" VerticalAlignment="top" FontSize="14">
+             Membership is free and registration takes about a minute.
+            </TextBlock>
+
+            <TextBlock  TextWrapping="Wrap" Margin="9,75,0,2" LineHeight="Auto" Height="Auto" Padding="5,6,0,9" HorizontalAlignment="Stretch" VerticalAlignment="top" FontSize="14">
+            <Hyperlink NavigateUri="https://tenon.io/register.php" RequestNavigate="Hyperlink_OnRequestNavigate">
+                    Register to get a tenon key...
+                </Hyperlink>
+            </TextBlock>
+        </Grid>
+        <Grid  Grid.Row="1"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Name="Grid2" Margin="0,0,10,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" ></ColumnDefinition>
+                <ColumnDefinition Width="Auto" MinWidth="495"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"  Content="Key:" HorizontalAlignment="Stretch" Margin="11,3,0,0" VerticalAlignment="Stretch" Width="Auto" FontWeight="Bold" />
+            <TextBox  x:Name="TextBox1"
+                      HorizontalAlignment="Right" MinHeight="26" Margin="0,3,-5,7" TextWrapping="Wrap"  VerticalAlignment="Stretch" MinWidth="475"
+                      SelectionOpacity="0.5" AcceptsReturn="True" Grid.ColumnSpan="2">
+            </TextBox>
+        </Grid>
+        <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Name="Grid3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto" MinWidth="490"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"  Content="Level:" Margin="11,2,0,0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontWeight="Bold"/>
+            <ComboBox Grid.Column="1"  Margin="0,2,-2,5.4"  VerticalAlignment="Stretch" MinWidth="475" MinHeight="26" HorizontalContentAlignment="Left" x:Name="ComboBox2" HorizontalAlignment="Right">
+                <ComboBoxItem Content="AAA" IsSelected="True"  HorizontalContentAlignment="Left" />
+                <ComboBoxItem Content="AA" HorizontalContentAlignment="Left" />
+                <ComboBoxItem Content="A" HorizontalContentAlignment="Left" />
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="Grid4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="490"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto" ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0"  Content="Results:" HorizontalAlignment="Stretch" Margin="11,2,0,0"  Width="Auto" FontWeight="Bold" Grid.Row="0" />
+            <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left"  MinHeight="26"  VerticalAlignment="Stretch" MinWidth="475" HorizontalContentAlignment="Left" Grid.Row="0" Margin="71 2 2 0">
+                <ComboBoxItem Content="Errors and Warnings" IsSelected="True"  HorizontalContentAlignment="Left" />
+                <ComboBoxItem Content="Errors" HorizontalContentAlignment="Left"/>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="Grid5" Margin="0 4 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="15"></RowDefinition></Grid.RowDefinitions>
+            <TextBlock Name="ErrorPlaceholder" Margin="13,7,0,19" FontWeight="Bold" Grid.Row="1" Visibility="Hidden" Grid.ColumnSpan="1" TextWrapping="Wrap" MaxWidth="510"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="5" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Name="Grid6" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Name="LoadingStack" Visibility="Hidden" Margin="11 15 0 10">
+                <Image x:Name="Spinner" Source="Resources/activity-large.gif" RenderTransformOrigin="0.5, 0.5" Grid.Column="0"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard Storyboard="{DynamicResource Spin360}" />
+                        </EventTrigger>
+                    </Image.Triggers>
+                    <Image.RenderTransform>
+                        <RotateTransform Angle="0" />
+                    </Image.RenderTransform>
+                </Image>
+                <TextBlock  FontSize="14" x:Name="processingtext" VerticalAlignment="Center" Margin="10 0 0 0"><Run Text="Processing...."/></TextBlock>
+            </StackPanel>
+            <Button x:Name="BtnValidate"  Grid.Column="2" Content="Validate" HorizontalAlignment="Right"  VerticalAlignment="Top" MinWidth="90" MinHeight="30" Click="btnValidate_Click" Margin="0,28,-276.8,10"/>
+            <Button x:Name="BtnCancel" Grid.Column="2" Content="Cancel" IsCancel="True"  HorizontalAlignment="Right"  VerticalAlignment="Top" MinWidth="90" MinHeight="30" Click="btnCancel_Click" Margin="0,28,-394.8,14"/>
+        </Grid>
+    </Grid>
+    <Window.Resources>
+        <Storyboard x:Key="Spin360" Storyboard.TargetName="Spinner" Storyboard.TargetProperty="RenderTransform.(RotateTransform.Angle)">
+            <DoubleAnimation From="0" To="360" BeginTime="0:0:0" Duration="0:0:2" RepeatBehavior="Forever" />
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="Close" Executed="OnCloseCmdExecuted" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="Close" Key="Escape" />
+    </Window.InputBindings>
+</ui:DialogWindow>
