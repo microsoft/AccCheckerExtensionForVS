@@ -27,9 +27,9 @@ We published this source under an MIT liscense so that you can leverage any of t
 
 ##Documentation
 
-* You can read more about the Tenon HTML Accessibility Checker on the (Visual Studio blog.)[http://blogs.msdn.com/b/visualstudio/archive/2015/03/03/improving-html-accessibility-with-visual-studio-extensions.aspx]
+* You can read more about the Tenon HTML Accessibility Checker on the [Visual Studio blog.](http://blogs.msdn.com/b/visualstudio/archive/2015/03/03/improving-html-accessibility-with-visual-studio-extensions.aspx)
 * You can read about Tenon and the Tenon API at [http://tenon.io]
-* You can download the compiled extension directly from the (Visual Studio Gallery)[https://visualstudiogallery.msdn.microsoft.com/0ad320bc-80e4-402a-bf2b-d6c23a3a6730]
+* You can download the compiled extension directly from the [Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/0ad320bc-80e4-402a-bf2b-d6c23a3a6730)
 
 
 ## Legal stuff
